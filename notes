@@ -1,0 +1,17 @@
+pins = 5
+pint2=6
+
+
+
+
+- pin5 off ,pin6 on = anti clock
+
+- pin5 on ,pin6 off  = clock
+
+
+
+pin0 off pin 2 on left
+ pin0 on  pin off right
+
+
+pin=machine.Pin(0,machine.Pin.OUT)
