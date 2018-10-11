@@ -1,26 +1,19 @@
+import machine
+
 import socket
+addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+#0.0.0.0 is it root ip to acces from pc go to 192.168.4.1
+s = socket.socket()
+s.bind(addr)
+s.listen(1)
 
-
-holad=""
-
-
-sock = socket.socket()
-sock.connect(('10.10.0.5', 5000))
-chunk = sock.recv(1024)
-
-print("runing555")
+print('listening on', addr)
+cl, addr = s.accept()
+print(addr," has connect")
 while True:
     print("runing")
-    chunk = sock.recv(1024)
-    if not chunk:
-        break
-    holad=holad+(chunk.decode())
-    print("loop")
-print("done")
-print(holad)
-print("hold")
-
-sock.close()
 
 
-print(holad)
+    x=s.recv(5)
+    print(x)
+cl.close()

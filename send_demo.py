@@ -1,13 +1,25 @@
 import socket
 
-CHUNK_SIZE = 8 * 1024
 
-server_socket = socket.socket()
-server_socket.bind(('192.168.0.5', 5000))
-server_socket.listen(5)
-client_socket, addr = server_socket.accept()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+host = '192.168.4.1'
+port = 8080
+s.connect((host,port))
 
-data = "hello world "
-while data:
-    client_socket.send(data)
-client_socket.close()
+def ts(data_to_send):
+
+   data_to_send=str(data_to_send)
+
+   try:
+       s.send(data_to_send.encode())
+   except:
+       print("send fail host down")
+       exit()
+   data_from_sever = s.recv(1024).decode()
+   print (data_from_sever)
+
+while 1:
+   r = input('enter')
+   ts(r)
+
+s.close ()
