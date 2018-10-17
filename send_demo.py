@@ -3,7 +3,7 @@ import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = '192.168.4.1'
-port = 8080
+port = 80
 s.connect((host,port))
 
 def ts(data_to_send):
@@ -15,8 +15,8 @@ def ts(data_to_send):
    except:
        print("send fail host down")
        exit()
-   data_from_sever = s.recv(1024).decode()
-   print (data_from_sever)
+   #data_from_sever = s.recv(1024).decode()
+   #print (data_from_sever)
 
 while 1:
    r = input('enter')
