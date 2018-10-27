@@ -27,10 +27,11 @@ def start():
         x=x.decode()
 
         if x =="stop":
-            pin5.off()
-            pin4.off()
-            pin0.off()
-            pin2.off()
+            pin5.on()
+            pin4.on()
+            pin0.on()
+            pin2.on()
+            print("stoping")
         if x =="close":
             break
 
